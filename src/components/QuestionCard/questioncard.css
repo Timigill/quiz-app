@@ -1,0 +1,72 @@
+/* QuestionCard.css */
+
+/* Main container for the question card */
+.question-card {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #000000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: center;
+  color: white;
+}
+
+/* Style for the question text */
+.question {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Options container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Button styles for options */
+.option {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for options */
+.option:hover {
+  background-color: #f0f8ff; /* Light blue on hover */
+  transform: scale(1.01);
+}
+
+/* Correct answer styles */
+.correct {
+  background-color: #d4edda !important; /* Green */
+  border-color: #c3e6cb;
+  color: #155724;
+  font-weight: bold;
+}
+
+/* Incorrect answer styles */
+.incorrect {
+  background-color: #f8d7da !important; /* Red */
+  border-color: #f5c6cb;
+  color: #721c24;
+  font-weight: bold;
+}
+
+/* Disable button when answered */
+.option:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Add a subtle box-shadow for buttons */
+.option:not(:disabled):hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}

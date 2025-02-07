@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#0070f3", // Primary color for buttons
+        secondary: "#333", // Secondary color for footer
       },
     },
   },
