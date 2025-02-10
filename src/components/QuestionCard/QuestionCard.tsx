@@ -41,8 +41,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                   : answered && selectedAnswer === option
                   ? "#f8d7da" // Red for incorrect answer
                   : index % 2 === 0
-                  ? "#e8f5ff" // Light blue for even rows
-                  : "#fff4e5", // Light yellow for odd rows
+                  ? "" // Light blue for even rows
+                  : "", // Light yellow for odd rows
+                  
             }}
             disabled={answered}
             onClick={() => onAnswer(option)}

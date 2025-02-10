@@ -14,7 +14,7 @@ export default function Home() {
       alignItems: "center",
       justifyContent: "center",
       height: "100vh", // Full viewport height
-      backgroundColor: "var(--background)", // Use CSS variable for background
+      backgroundColor: "black", // Use CSS variable for background
       color: "var(--foreground)", // Use CSS variable for text color
       padding: "20px",
       textAlign: "center",
@@ -22,6 +22,7 @@ export default function Home() {
       borderRadius: "10px",
     }}>
       <h1 style={{
+        color: "white", // Use CSS variable for primary color
         fontSize: "2.5rem",
         marginBottom: "20px",
         fontFamily: "'Helvetica', sans-serif",
@@ -34,14 +35,20 @@ export default function Home() {
           fontSize: "18px",
           cursor: "pointer",
           backgroundColor: "var(--primary)", // Use CSS variable for primary color
-          color: "#fff",
-          border: "none",
+          color: "white",
+          border: "1px solid ",
           borderRadius: "5px",
           transition: "background-color 0.3s ease, transform 0.2s ease",
         }}
         onClick={navigateToQuiz}  // Use the custom navigation function
-        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#0056b3"} // Darker shade on hover
-        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--primary)"} // Reset to primary color
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "white";
+          e.currentTarget.style.color = "black"; // Change text color to black (or any other color)
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "var(--primary)";
+          e.currentTarget.style.color = "white"; // Reset text color to white
+        }}
       >
         Start Quiz
       </button>

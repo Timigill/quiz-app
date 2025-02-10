@@ -1,54 +1,77 @@
-const questions = [
+const flirtyQuestions = [
   {
-    question: "What is 2 + 2?",
-    options: ["3", "4", "5", "6"],
-    answer: "4",
+    question: "What’s the best way to win my heart?",
+    options: ["Flowers", "Chocolate", "Your smile", "All of the above"],
+    answer: "All of the above",
   },
   {
-    question: "What is the capital of France?",
-    options: ["Berlin", "Madrid", "Paris", "Rome"],
-    answer: "Paris",
+    question: "If we were on a date, where would you take me?",
+    options: ["A fancy restaurant", "A cozy coffee shop", "A sunset picnic", "Anywhere, as long as it’s with you"],
+    answer: "Anywhere, as long as it’s with you",
   },
   {
-    question: "What is the square root of 16?",
-    options: ["2", "3", "4", "5"],
-    answer: "4",
+    question: "What’s your favorite thing about me?",
+    options: ["Your eyes", "Your laugh", "Your sense of humor", "Everything"],
+    answer: "Everything",
   },
   {
-    question: "What is the largest planet in our solar system?",
-    options: ["Earth", "Jupiter", "Mars", "Venus"],
-    answer: "Jupiter",
+    question: "What’s the most romantic thing you’ve ever done?",
+    options: ["Written a love letter", "Planned a surprise date", "Stargazed all night", "Still waiting for the right person"],
+    answer: "Still waiting for the right person",
   },
   {
-    question: "What is the freezing point of water?",
-    options: ["32°F", "0°C", "100°C", "0°F"],
-    answer: "0°C",
+    question: "If you could describe me in one word, what would it be?",
+    options: ["Irresistible", "Charming", "Breathtaking", "Perfect"],
+    answer: "Perfect",
   },
   {
-    question: "Who wrote 'Hamlet'?",
-    options: ["Shakespeare", "Dickens", "Austen", "Hemingway"],
-    answer: "Shakespeare",
+    question: "What’s your idea of a perfect date?",
+    options: ["Dinner and a movie", "A walk on the beach", "Netflix and chill", "Anything with you"],
+    answer: "Anything with you",
   },
   {
-    question: "What is the chemical symbol for gold?",
-    options: ["Ag", "Au", "Pb", "Fe"],
-    answer: "Au",
+    question: "What’s the first thing you noticed about me?",
+    options: ["Your smile", "Your eyes", "Your confidence", "Your vibe"],
+    answer: "Your smile",
   },
   {
-    question: "What is the capital of Japan?",
-    options: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
-    answer: "Tokyo",
+    question: "If we were stranded on a deserted island, what’s the one thing you’d bring?",
+    options: ["A knife", "A book", "A radio", "Me"],
+    answer: "Me",
   },
   {
-    question: "Who painted the Mona Lisa?",
-    options: ["Da Vinci", "Van Gogh", "Picasso", "Rembrandt"],
-    answer: "Da Vinci",
+    question: "What’s your favorite love song?",
+    options: ["Thinking Out Loud - Ed Sheeran", "Perfect - Ed Sheeran", "All of Me - John Legend", "Our song"],
+    answer: "Our song",
   },
   {
-    question: "What is the largest ocean on Earth?",
-    options: ["Atlantic", "Indian", "Arctic", "Pacific"],
-    answer: "Pacific",
+    question: "What’s the most romantic thing you’d do for me?",
+    options: ["Write you a poem", "Sing you a song", "Cook you dinner", "Whatever makes you happiest"],
+    answer: "Whatever makes you happiest",
   },
 ];
 
-export default questions;
+// Define TypeScript types
+interface Question {
+  question: string;
+  options: string[];
+  answer: string;
+}
+
+// Fisher-Yates shuffle algorithm with proper TypeScript typing
+const shuffleArray = (array: string[]): string[] => {
+  const newArray = [...array]; // Clone array to prevent mutation
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+// Shuffle options for each question without modifying the original structure
+const shuffledFlirtyQuestions: Question[] = flirtyQuestions.map((question) => ({
+  ...question,
+  options: shuffleArray(question.options),
+}));
+
+export default shuffledFlirtyQuestions;

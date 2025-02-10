@@ -3,70 +3,101 @@
 /* Main container for the question card */
 .question-card {
   margin: 20px auto;
-  padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background-color: #000000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Light border with transparency */
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a); /* Gradient background */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Deeper shadow for 3D effect */
   max-width: 600px;
   text-align: center;
-  color: white;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif; /* Modern and clean font */
+  backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
 }
 
 /* Style for the question text */
 .question {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
 }
 
 /* Options container */
 .options-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Button styles for options */
 .option {
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Transparent border */
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: black;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 /* Hover effect for options */
 .option:hover {
-  background-color: #f0f8ff; /* Light blue on hover */
-  transform: scale(1.01);
+  background: rgba(255, 255, 255, 0.2); /* Lighter on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow on hover */
 }
 
 /* Correct answer styles */
 .correct {
-  background-color: #d4edda !important; /* Green */
-  border-color: #c3e6cb;
-  color: #155724;
+  background: linear-gradient(145deg, #4caf50, #45a049) !important; /* Gradient green */
+  border-color: transparent;
+  color: #ffffff;
   font-weight: bold;
+  animation: pulse 0.5s ease-in-out; /* Pulse animation for correct answer */
 }
 
 /* Incorrect answer styles */
 .incorrect {
-  background-color: #f8d7da !important; /* Red */
-  border-color: #f5c6cb;
-  color: #721c24;
+  background: linear-gradient(145deg, #f44336, #e53935) !important; /* Gradient red */
+  border-color: transparent;
+  color: #ffffff;
   font-weight: bold;
+  animation: shake 0.4s ease-in-out; /* Shake animation for incorrect answer */
 }
 
 /* Disable button when answered */
 .option:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.05); /* Very light disabled state */
 }
 
 /* Add a subtle box-shadow for buttons */
 .option:not(:disabled):hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Glowing effect for selected options */
+.option:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* Glow effect */
+}
+
+/* Pulse animation for correct answer */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Shake animation for incorrect answer */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
