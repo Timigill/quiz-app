@@ -1,5 +1,5 @@
 import React from "react";
-import "./QuestionCard.css"; // Import styles for the component
+import "./questioncard.css"; // Import styles for the component
 import '@/app/globals.css';
 type QuestionCardProps = {
   question: {
